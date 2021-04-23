@@ -9,36 +9,36 @@
     <title>Title</title>
 </head>
 <body>
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-    </tr>
-    </tbody>
-</table>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h1 class="mt-2 mb-2">Hospitals That Support Basic EHR Notes In The Year <span th:text="${period}"></span></h1>
+
+            <table id="hospitalByState" class="table table-striped table-hover  ">
+                <thead class="">
+                <tr>
+                    <th>#</th>
+                    <th>State</th>
+                    <th>% of All Hospitals</th>
+                    <th>% of Rural Hospitals</th>
+                    <th>% of Small Hospitals</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="hospital, itr : ${hospitalEHRByState}">
+                    <td th:text="${itr.count}"></td>
+                    <td th:text="${hospital.region}"></td>
+                    <td th:text="${hospital.pctHospitalsBasicEhrNotes}"></td>
+                    <td th:text="${hospital.pctRuralHospitalsBasicEhrNotes}"></td>
+                    <td th:text="${hospital.pctSmallHospitalsBasicEhrNotes}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>
