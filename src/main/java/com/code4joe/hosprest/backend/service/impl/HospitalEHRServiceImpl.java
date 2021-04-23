@@ -50,6 +50,9 @@ public class HospitalEHRServiceImpl implements HospitalEHRService {
      * @return list of hospitalEHR
      */
     private HttpEntity<List<HospitalEHR>> getListHttpEntity(UriComponentsBuilder builder, HttpEntity<?> entity) {
+        /**
+         * Enable of capturing and passing List of HospitalEHR objects
+         */
         ParameterizedTypeReference<List<HospitalEHR>> responseType = new ParameterizedTypeReference<>() {};
         return restTemplate.exchange(
                 builder.build().toUriString(),
